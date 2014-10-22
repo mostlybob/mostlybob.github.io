@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | Working Blog]]></title>
+  <link href="http://mostlybob.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://mostlybob.github.io/"/>
+  <updated>2014-10-22T05:45:50-05:00</updated>
+  <id>http://mostlybob.github.io/</id>
+  <author>
+    <name><![CDATA[Bob Campbell]]></name>
+    <email><![CDATA[mostlybob@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test Installing NewGenLib]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib/"/>
+    <updated>2014-04-08T06:02:26-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib</id>
+    <content type="html"><![CDATA[<p>One of my side projects is helping a small <a href="https://en.wikipedia.org/wiki/One_Person_Library">&ldquo;One Person Library&rdquo;</a> revamp the cataloguing system they use for their collection. The main complaint is that the software they are currently using has been spotty in its support and the reporting engine, arguably the most used part of the system, has started being particularly flaky.</p>
+
+<p>On the face of it, the needs are relatively modest. The collection is small, on the order of a couple thousand items and the physical space is a converted office in a church. It is periodically maintained by a collection of volunteers, including one person who has taken on the role of librarian.</p>
+
+<p>Libraries present some interesting challenges and OPLs offer some unique opportunities for software. It&rsquo;s part inventory database, part outreach and part usage tracking. No doubt it&rsquo;s part &ldquo;lots of other things&rdquo; too. Another thing that makes OPLs noteworthy from a software standpoint is that the staff, by definition small to begin with, can run the gamut in terms of technical ability and the software to support them has to strike that balance between capability and ease of use.</p>
+
+<p>There are a variety of solutions for something like this. In this particular case, this is at least the second go-round with a small shareware package that started out promising, but then basically disappeared. Rather than trying to replace it with yet another small-scale proprietary custom database app, I&rsquo;ve been looking at an open source solution with a community behind it. I&rsquo;ve been leaning toward <a href="http://obiblio.sourceforge.net/">OpenBiblio</a>, however just lately another prospect has come up that I&rsquo;m going to kick the tires on: <a href="http://www.verussolutions.biz/">NewGenLib</a>.</p>
+
+<p>It&rsquo;s Java, which does not thrill me, but then again OpenBiblio is PHP, so from the perspective of a .Net dev dabbling in Ruby and Python, it&rsquo;s the devil either way. In any event, I&rsquo;m mainly looking for something that I can set up more or less as a turnkey solution and hopefully not have to tear all that deeply into.</p>
+]]></content>
+  </entry>
+  
+</feed>

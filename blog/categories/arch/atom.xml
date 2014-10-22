@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Arch | Working Blog]]></title>
+  <link href="http://mostlybob.github.io/blog/categories/arch/atom.xml" rel="self"/>
+  <link href="http://mostlybob.github.io/"/>
+  <updated>2014-10-22T05:45:50-05:00</updated>
+  <id>http://mostlybob.github.io/</id>
+  <author>
+    <name><![CDATA[Bob Campbell]]></name>
+    <email><![CDATA[mostlybob@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Running Docker With Antergos]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/11/running-docker-with-antergos/"/>
+    <updated>2014-04-11T12:33:32-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/11/running-docker-with-antergos</id>
+    <content type="html"><![CDATA[<p>At the risk of turning this into a super-slow mo live blogging event, I did want to put up my observations working with <a href="http://www.docker.io">Docker</a>.</p>
+
+<p>After a little fiddling around, I got <code>docker</code> running. The basic directions are <a href="https://bbs.archlinux.org/viewtopic.php?id=174183">here</a>, the only addition I would add is that for me, it required a system restart before the change took hold. Prior to the restart, following those directions resulted in an error message:</p>
+
+<pre><code>Cannot connect to the Docker daemon
+</code></pre>
+
+<p>After the restart, all was well.</p>
+]]></content>
+  </entry>
+  
+</feed>

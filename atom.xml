@@ -1,16 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Working Blog]]></title>
   <link href="http://mostlybob.github.io/atom.xml" rel="self"/>
   <link href="http://mostlybob.github.io/"/>
-  <updated>2014-10-22T05:38:16-05:00</updated>
+  <updated>2014-10-22T05:45:50-05:00</updated>
   <id>http://mostlybob.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[Bob Campbell]]></name>
+    <email><![CDATA[mostlybob@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress &amp; SSH?]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/10/20/octopress-and-ssh/"/>
+    <updated>2014-10-20T20:27:08-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/10/20/octopress-and-ssh</id>
+    <content type="html"><![CDATA[<p>Ok, it’s not the most elegant solution, but here it is. Sigh. Delete the repo and reclone using the ssh url. If you’re reading this, then it worked. I suppose there are better, more git-ish ways of doing it, but as mom would say, any landing you can walk away from&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Updating Octopress to Use SSH for Github Pages]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/10/17/updating-octopress-to-use-ssh-for-github-pages/"/>
+    <updated>2014-10-17T05:45:57-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/10/17/updating-octopress-to-use-ssh-for-github-pages</id>
+    <content type="html"><![CDATA[<p>In the afore-mentioned spirit of building the boat as it’s moving away from the dock, I’m sort of trying this one on the fly. After switching the remotes, I had expected the deploy to “just work,” since it was pushing to a Github repo. When I deployed, however, it still asked for my GH credentials. Without actually looking at the Rakefile Octopress uses, I had assumed that there was a bit of configuration in the deploy task that was telling it to use a different method. When I actually looked at it, though, no such luck:</p>
+
+<figure class='code'><figcaption><span>task, task, who has the task?</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">task</span> <span class="ss">:deploy</span> <span class="k">do</span>
+</span><span class='line'>  <span class="c1"># Check if preview posts exist, which should not be published</span>
+</span><span class='line'>  <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exists?</span><span class="p">(</span><span class="err">“</span><span class="o">.</span><span class="n">preview</span><span class="o">-</span><span class="n">mode</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="err">“</span><span class="c1">## Found posts in preview mode, regenerating files ...”</span>
+</span><span class='line'>    <span class="no">File</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="err">“</span><span class="o">.</span><span class="n">preview</span><span class="o">-</span><span class="n">mode</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>    <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="o">[</span><span class="ss">:generate</span><span class="o">].</span><span class="n">execute</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="o">[</span><span class="ss">:copydot</span><span class="o">].</span><span class="n">invoke</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">public_dir</span><span class="p">)</span>
+</span><span class='line'>   <span class="no">Rake</span><span class="o">::</span><span class="no">Task</span><span class="o">[</span><span class="err">“</span><span class="c1">#{deploy_default}”].execute</span>
+</span><span class='line'> <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Nothing pertaining to my blog, specifically, to be seen, but there was that <code>deploy_default</code> task. All it said was “push” so not much there either. There was another variable in that block, though, called <code>ssh_user</code> with a default e-mail address in it. I replaced it with the e-mail address I used to create the SSH keys and I’m thinking that might do it, the reasoning being if it tried to push with an invalid SSH setting, GH would fall back to the HTTPS mode. I could be wrong, but I thought I’d give that a whirl.</p>
+
+<p>Sure I could do a search for all this, but I’m in an experimental mood. Let’s see how it goes.</p>
+
+<p><em>Ok, it didn’t work - the deploy still asked for credentials, so I sense a web search in my future. For science!</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Updating the Blog Setup to Use SSH]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/"/>
+    <updated>2014-10-16T12:32:45-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh</id>
+    <content type="html"><![CDATA[<p>Generally speaking, I’ve found the workflow using Octopress to get stuff onto the blog reasonably straightforward. One bit that hangs me up, more for the inconvenience, is having to stop and enter my username &amp; password everytime I deploy or push something to the repo on Github. It’s not a lot, but over the course of a typical session, if I have to do it, say, 6 or 7 times, it gets a little tiresome.</p>
+
+<p>I’ve known for some time that Github makes it possible to set up SSH authentication so that you can sidestep this little hitch in the routine. This seemed like a nice little thing to blog about. Who knows? I never googled it with DuckDuckGo, so there may be a ton of stuff out there on this very topic, but I’m looking for stuff to write about and it beats a page of <a href="http://lipsum.com/">Lorem Ipsum</a>.</p>
+
+<h3>Establish your keys</h3>
+
+<p>If you haven’t done so already, you need to set up SSH keys locally. I followed the directions <a href="https://help.github.com/articles/generating-ssh-keys/">here</a>, since I’m using Github. I have plans to explore deploying Jekyll/Octopress blog(s) to a more traditional shared webhosting solution, but for today, it’s Github. I’m using Linux. Mac should be much the same. Windows, out of the box, is a bit stunted in this regard. Your friendly neighborhood search engine should be able to <a href="https://duckduckgo.com/?q=setting+up+SSH+on+windows">direct you</a> toward setting up SSH on Windows.</p>
+
+<h3>Change your remote</h3>
+
+<p>Being somewhat lazy (or expeditious, choose), I set up things using the most direct route possible, meaning HTTPS for my github repo. Had I not, you’d be reading <a href="http://www.reddit.com/r/catpictures/">something else</a>. Here again, <a href="https://help.github.com/articles/changing-a-remote-s-url/">Github spells it out</a>.</p>
+
+<h3>Test your changes</h3>
+
+<p>Rubber to road time. I followed the directions literally and took the name of the repo using HTTPS and stuck a 2 on the end of it for the SSH remote. As I suspected, git didn’t like that when I tried to push my commits. I took the 2 off and all was well. To reiterate, if you have a remote that looks like this when you do a <code>git remote -v</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>origin  https://github.com/palmolivemadge/ur-soaking-in-it.git (fetch)
+</span><span class='line'>origin  https://github.com/palmolivemadge/ur-soaking-in-it.git (push)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>don’t do this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote set-url origin git@github.com:palmolivemadge/ur-soaking-in-it2.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the 2 on the end, just like what GH said in its post. Instead, do this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote set-url origin git@github.com:palmolivemadge/ur-soaking-in-it.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are probably excellent reasons for GH describing things the way they did, but for us poor, literal-minded souls, they are a little misleading. It’s an easy mistake to spot and fix, but sometimes the dumbest things hang up the smartest people.</p>
+
+<p>The follow-up to this will be altering the rake tasks in Octopress to use the SSH repo instead of the HTTPS. Enough pesky passwords!</p>
+
+<p>Hey. Not so bad for my first substantial post, and only one day in. Onward!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Current State of Things]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/10/15/the-current-state-of-things/"/>
+    <updated>2014-10-15T11:58:02-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/10/15/the-current-state-of-things</id>
+    <content type="html"><![CDATA[<p>Somewhere in the wagon-load of ideas and notions I have banging around inside my head, there&rsquo;s a higher notion of what I want to put in this post and in the larger blog. I&rsquo;ve started the post a couple of times and it keeps getting bogged down or sidetracked in minutiae. Keeping a blog is an idea I&rsquo;ve always liked. Moreso than just a simple journal, having a public accounting of my activity, I think, is good way to keep me on track. Distractions abound, so I&rsquo;m going to keep this simple.</p>
+
+<p>The idea of an arbitrary or recurring schedule (think <a href="http://www.jonathancoulton.com/primer/thing-a-week/">Thing a Week</a>, if you&rsquo;re JoCo inclined) for blogging appeals to me at this point in the process, mainly because I&rsquo;m out of the habit and there are lots of things, workflow-wise, that a stipulated schedule could give things the needed nudge. So, in that spirit, let&rsquo;s see if I can get on some sort of weekly schedule - minimum one post a week.</p>
+
+<p>I do have a few expectations:</p>
+
+<ul>
+<li>get better with Jekyll/Octopress - surprisingly lots to know here.</li>
+<li>sort out where the blog is going to go. Yep, nothing like building the boat as it&rsquo;s pulling away from the dock.</li>
+<li>post successes, or at least progress, however minimal. This one could be tricky, since I&rsquo;m working with a few things like Go and Python at a <em>really</em> basic level. In my other life, I&rsquo;m a full-time senior .Net dev, operating at a level far above where I am with those other languages. Sometimes it&rsquo;s hard to get enthusiastic about &ldquo;Look! I can put a Fibonacci sequence to the console!&rdquo;</li>
+<li>try to have fun with it. There are a lot of places to get technical advice. For the things I&rsquo;m interested in, I&rsquo;m a ways from a level of proficiency that anyone would find useful. In the absence of being helpful, my aim is to be at least a bit amusing. If I can&rsquo;t do that, then there&rsquo;s probably not much point to this little exercise.</li>
+</ul>
+
+
+<p>What I don&rsquo;t expect:</p>
+
+<ul>
+<li>to take the web by storm. There are boatloads of blogs out there on just the things I&rsquo;m interested in. No one in my family will read this and even if they did I can&rsquo;t say they&rsquo;d find much of interest. With a ready-built audience out of the question, I&rsquo;ll have to plug away it in anonymity. Good thing I&rsquo;m in it for the lulz (ew, forget I said that).</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Running Docker With Antergos]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/11/running-docker-with-antergos/"/>
+    <updated>2014-04-11T12:33:32-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/11/running-docker-with-antergos</id>
+    <content type="html"><![CDATA[<p>At the risk of turning this into a super-slow mo live blogging event, I did want to put up my observations working with <a href="http://www.docker.io">Docker</a>.</p>
+
+<p>After a little fiddling around, I got <code>docker</code> running. The basic directions are <a href="https://bbs.archlinux.org/viewtopic.php?id=174183">here</a>, the only addition I would add is that for me, it required a system restart before the change took hold. Prior to the restart, following those directions resulted in an error message:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cannot connect to the Docker daemon</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After the restart, all was well.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[KCRuby Almost Railsconf Edition]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/10/kcruby-almost-railsconf/"/>
+    <updated>2014-04-10T12:22:10-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/10/kcruby-almost-railsconf</id>
+    <content type="html"><![CDATA[<p>Tuesday night&rsquo;s meeting was a pleasingly mixed bag, although I think <a href="http://www.meetup.com/kcruby/events/160767342/?comment_table_id=336652532&comment_table_name=event_comment">Craig&rsquo;s critique</a> is a shade overly harsh. His presentation on Docker was illuminating for me, even if it didn&rsquo;t all go as planned. Docker is one of those things I&rsquo;ve heard about and tried to figure out if or how I could use it. For the last few days, I&rsquo;ve been messing around with a Debian vm trying to get it set up for NewGenLib, which I <a href="http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib/">mentioned yesterday</a> and I&rsquo;m wondering if Docker might be an alternative to wrestling with Virtualbox. Not that I have anything against databases, but I don&rsquo;t need an instance of Postgres running locally, for the most part.</p>
+
+<p>Ideally, once I get the thing stood up, I want to give Digital Ocean a go. At this point, I also have to acknowledge that this may all be overkill for what&rsquo;s being requested, but given their history with library databases, I don&rsquo;t want them stuck with something that will peter out after a couple of years.</p>
+
+<p>Yeah, this post was lacking in substance, but I&rsquo;m still getting into the swing of it. The Octopress workflow takes a little getting used to.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Test Installing NewGenLib]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib/"/>
+    <updated>2014-04-08T06:02:26-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib</id>
+    <content type="html"><![CDATA[<p>One of my side projects is helping a small <a href="https://en.wikipedia.org/wiki/One_Person_Library">&ldquo;One Person Library&rdquo;</a> revamp the cataloguing system they use for their collection. The main complaint is that the software they are currently using has been spotty in its support and the reporting engine, arguably the most used part of the system, has started being particularly flaky.</p>
+
+<p>On the face of it, the needs are relatively modest. The collection is small, on the order of a couple thousand items and the physical space is a converted office in a church. It is periodically maintained by a collection of volunteers, including one person who has taken on the role of librarian.</p>
+
+<p>Libraries present some interesting challenges and OPLs offer some unique opportunities for software. It&rsquo;s part inventory database, part outreach and part usage tracking. No doubt it&rsquo;s part &ldquo;lots of other things&rdquo; too. Another thing that makes OPLs noteworthy from a software standpoint is that the staff, by definition small to begin with, can run the gamut in terms of technical ability and the software to support them has to strike that balance between capability and ease of use.</p>
+
+<p>There are a variety of solutions for something like this. In this particular case, this is at least the second go-round with a small shareware package that started out promising, but then basically disappeared. Rather than trying to replace it with yet another small-scale proprietary custom database app, I&rsquo;ve been looking at an open source solution with a community behind it. I&rsquo;ve been leaning toward <a href="http://obiblio.sourceforge.net/">OpenBiblio</a>, however just lately another prospect has come up that I&rsquo;m going to kick the tires on: <a href="http://www.verussolutions.biz/">NewGenLib</a>.</p>
+
+<p>It&rsquo;s Java, which does not thrill me, but then again OpenBiblio is PHP, so from the perspective of a .Net dev dabbling in Ruby and Python, it&rsquo;s the devil either way. In any event, I&rsquo;m mainly looking for something that I can set up more or less as a turnkey solution and hopefully not have to tear all that deeply into.</p>
+]]></content>
+  </entry>
   
 </feed>

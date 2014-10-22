@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Updating the Blog Setup to Use SSH - Working Blog</title>
+  <meta name="author" content="Bob Campbell">
+
+  
+  <meta name="description" content="Generally speaking, I’ve found the workflow using Octopress to get stuff onto the blog reasonably straightforward. One bit that hangs me up, more for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Working Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-55852935-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Working Blog</a></h1>
+  
+    <h2>you&#8217;ve gotta work!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mostlybob.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Updating the Blog Setup to Use SSH</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-16T12:32:45-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:32 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://mostlybob.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Generally speaking, I’ve found the workflow using Octopress to get stuff onto the blog reasonably straightforward. One bit that hangs me up, more for the inconvenience, is having to stop and enter my username &amp; password everytime I deploy or push something to the repo on Github. It’s not a lot, but over the course of a typical session, if I have to do it, say, 6 or 7 times, it gets a little tiresome.</p>
+
+<p>I’ve known for some time that Github makes it possible to set up SSH authentication so that you can sidestep this little hitch in the routine. This seemed like a nice little thing to blog about. Who knows? I never googled it with DuckDuckGo, so there may be a ton of stuff out there on this very topic, but I’m looking for stuff to write about and it beats a page of <a href="http://lipsum.com/">Lorem Ipsum</a>.</p>
+
+<h3>Establish your keys</h3>
+
+<p>If you haven’t done so already, you need to set up SSH keys locally. I followed the directions <a href="https://help.github.com/articles/generating-ssh-keys/">here</a>, since I’m using Github. I have plans to explore deploying Jekyll/Octopress blog(s) to a more traditional shared webhosting solution, but for today, it’s Github. I’m using Linux. Mac should be much the same. Windows, out of the box, is a bit stunted in this regard. Your friendly neighborhood search engine should be able to <a href="https://duckduckgo.com/?q=setting+up+SSH+on+windows">direct you</a> toward setting up SSH on Windows.</p>
+
+<h3>Change your remote</h3>
+
+<p>Being somewhat lazy (or expeditious, choose), I set up things using the most direct route possible, meaning HTTPS for my github repo. Had I not, you’d be reading <a href="http://www.reddit.com/r/catpictures/">something else</a>. Here again, <a href="https://help.github.com/articles/changing-a-remote-s-url/">Github spells it out</a>.</p>
+
+<h3>Test your changes</h3>
+
+<p>Rubber to road time. I followed the directions literally and took the name of the repo using HTTPS and stuck a 2 on the end of it for the SSH remote. As I suspected, git didn’t like that when I tried to push my commits. I took the 2 off and all was well. To reiterate, if you have a remote that looks like this when you do a <code>git remote -v</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>origin  https://github.com/palmolivemadge/ur-soaking-in-it.git (fetch)
+</span><span class='line'>origin  https://github.com/palmolivemadge/ur-soaking-in-it.git (push)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>don’t do this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote set-url origin git@github.com:palmolivemadge/ur-soaking-in-it2.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the 2 on the end, just like what GH said in its post. Instead, do this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote set-url origin git@github.com:palmolivemadge/ur-soaking-in-it.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are probably excellent reasons for GH describing things the way they did, but for us poor, literal-minded souls, they are a little misleading. It’s an easy mistake to spot and fix, but sometimes the dumbest things hang up the smartest people.</p>
+
+<p>The follow-up to this will be altering the rake tasks in Octopress to use the SSH repo instead of the HTTPS. Enough pesky passwords!</p>
+
+<p>Hey. Not so bad for my first substantial post, and only one day in. Onward!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Bob Campbell</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-16T12:32:45-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:32 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/https/'>https</a>, <a class='category' href='/blog/categories/ssh/'>ssh</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/" data-via="mostlybob" data-counturl="http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/15/the-current-state-of-things/" title="Previous Post: The Current State of Things">&laquo; The Current State of Things</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/10/17/updating-octopress-to-use-ssh-for-github-pages/" title="Next Post: Updating Octopress to use SSH for Github Pages">Updating Octopress to use SSH for Github Pages &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/20/octopress-and-ssh/">Octopress &amp; SSH?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/17/updating-octopress-to-use-ssh-for-github-pages/">Updating Octopress to Use SSH for Github Pages</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/">Updating the Blog Setup to Use SSH</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/15/the-current-state-of-things/">The Current State of Things</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/11/running-docker-with-antergos/">Running Docker With Antergos</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Bob Campbell -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'workingblogmbgh';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/';
+        var disqus_url = 'http://mostlybob.github.io/blog/2014/10/16/updating-the-blog-setup-to-use-ssh/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

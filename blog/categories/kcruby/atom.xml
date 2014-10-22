@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Kcruby | Working Blog]]></title>
+  <link href="http://mostlybob.github.io/blog/categories/kcruby/atom.xml" rel="self"/>
+  <link href="http://mostlybob.github.io/"/>
+  <updated>2014-10-22T05:45:50-05:00</updated>
+  <id>http://mostlybob.github.io/</id>
+  <author>
+    <name><![CDATA[Bob Campbell]]></name>
+    <email><![CDATA[mostlybob@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[KCRuby Almost Railsconf Edition]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/04/10/kcruby-almost-railsconf/"/>
+    <updated>2014-04-10T12:22:10-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/04/10/kcruby-almost-railsconf</id>
+    <content type="html"><![CDATA[<p>Tuesday night&rsquo;s meeting was a pleasingly mixed bag, although I think <a href="http://www.meetup.com/kcruby/events/160767342/?comment_table_id=336652532&comment_table_name=event_comment">Craig&rsquo;s critique</a> is a shade overly harsh. His presentation on Docker was illuminating for me, even if it didn&rsquo;t all go as planned. Docker is one of those things I&rsquo;ve heard about and tried to figure out if or how I could use it. For the last few days, I&rsquo;ve been messing around with a Debian vm trying to get it set up for NewGenLib, which I <a href="http://mostlybob.github.io/blog/2014/04/08/test-installing-newgenlib/">mentioned yesterday</a> and I&rsquo;m wondering if Docker might be an alternative to wrestling with Virtualbox. Not that I have anything against databases, but I don&rsquo;t need an instance of Postgres running locally, for the most part.</p>
+
+<p>Ideally, once I get the thing stood up, I want to give Digital Ocean a go. At this point, I also have to acknowledge that this may all be overkill for what&rsquo;s being requested, but given their history with library databases, I don&rsquo;t want them stuck with something that will peter out after a couple of years.</p>
+
+<p>Yeah, this post was lacking in substance, but I&rsquo;m still getting into the swing of it. The Octopress workflow takes a little getting used to.</p>
+]]></content>
+  </entry>
+  
+</feed>

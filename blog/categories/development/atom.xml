@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Development | Working Blog]]></title>
+  <link href="http://mostlybob.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://mostlybob.github.io/"/>
+  <updated>2014-10-22T05:45:50-05:00</updated>
+  <id>http://mostlybob.github.io/</id>
+  <author>
+    <name><![CDATA[Bob Campbell]]></name>
+    <email><![CDATA[mostlybob@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Current State of Things]]></title>
+    <link href="http://mostlybob.github.io/blog/2014/10/15/the-current-state-of-things/"/>
+    <updated>2014-10-15T11:58:02-05:00</updated>
+    <id>http://mostlybob.github.io/blog/2014/10/15/the-current-state-of-things</id>
+    <content type="html"><![CDATA[<p>Somewhere in the wagon-load of ideas and notions I have banging around inside my head, there&rsquo;s a higher notion of what I want to put in this post and in the larger blog. I&rsquo;ve started the post a couple of times and it keeps getting bogged down or sidetracked in minutiae. Keeping a blog is an idea I&rsquo;ve always liked. Moreso than just a simple journal, having a public accounting of my activity, I think, is good way to keep me on track. Distractions abound, so I&rsquo;m going to keep this simple.</p>
+
+<p>The idea of an arbitrary or recurring schedule (think <a href="http://www.jonathancoulton.com/primer/thing-a-week/">Thing a Week</a>, if you&rsquo;re JoCo inclined) for blogging appeals to me at this point in the process, mainly because I&rsquo;m out of the habit and there are lots of things, workflow-wise, that a stipulated schedule could give things the needed nudge. So, in that spirit, let&rsquo;s see if I can get on some sort of weekly schedule - minimum one post a week.</p>
+
+<p>I do have a few expectations:</p>
+
+<ul>
+<li>get better with Jekyll/Octopress - surprisingly lots to know here.</li>
+<li>sort out where the blog is going to go. Yep, nothing like building the boat as it&rsquo;s pulling away from the dock.</li>
+<li>post successes, or at least progress, however minimal. This one could be tricky, since I&rsquo;m working with a few things like Go and Python at a <em>really</em> basic level. In my other life, I&rsquo;m a full-time senior .Net dev, operating at a level far above where I am with those other languages. Sometimes it&rsquo;s hard to get enthusiastic about &ldquo;Look! I can put a Fibonacci sequence to the console!&rdquo;</li>
+<li>try to have fun with it. There are a lot of places to get technical advice. For the things I&rsquo;m interested in, I&rsquo;m a ways from a level of proficiency that anyone would find useful. In the absence of being helpful, my aim is to be at least a bit amusing. If I can&rsquo;t do that, then there&rsquo;s probably not much point to this little exercise.</li>
+</ul>
+
+
+<p>What I don&rsquo;t expect:</p>
+
+<ul>
+<li>to take the web by storm. There are boatloads of blogs out there on just the things I&rsquo;m interested in. No one in my family will read this and even if they did I can&rsquo;t say they&rsquo;d find much of interest. With a ready-built audience out of the question, I&rsquo;ll have to plug away it in anonymity. Good thing I&rsquo;m in it for the lulz (ew, forget I said that).</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
