@@ -11,6 +11,10 @@ footer: true
   - I may have inadvertantly rm'd the ```_deploy``` folder
   - after trying to fix it and finding that the site no longer updated, decided to nuke/start over
   - yeah.
+- back on track - had to remove GH repo and redo
+  - lost commit history, but it was brief anyway
+  - I suspect there’s a git way to retain all that from the local copy of the old repo, but I’m just glad to be back up
+- new post Octopress and the ```_deploy``` folder
 
 ## 2014-10-16
 - posted Updating the Blog Setup to use SSH
