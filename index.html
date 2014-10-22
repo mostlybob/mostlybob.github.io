@@ -9,7 +9,7 @@
   <meta name="author" content="Bob Campbell">
 
   
-  <meta name="description" content="Ok, it’s not the most elegant solution, but here it is. Sigh. Delete the repo and reclone using the ssh url. If you’re reading this, then it worked. &hellip;">
+  <meta name="description" content="Another short one. In the process of chasing around the issue with getting the SSH to work with Octopress, I inadvertantly deleted the _deploy folder &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/22/octopress-and-the-deploy-folder/">Octopress and the _deploy Folder</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-22T05:51:59-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>5:51 am</span></time>
+        
+           | <a href="/blog/2014/10/22/octopress-and-the-deploy-folder/#disqus_thread"
+             data-disqus-identifier="http://mostlybob.github.io/blog/2014/10/22/octopress-and-the-deploy-folder/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Another short one. In the process of chasing around the issue with getting the SSH to work with Octopress, I inadvertantly deleted the <code>_deploy</code> folder. When I saw the rake task complaining about the folder being missing, I recreated it and (thought) things were well. Then I noticed that my blog was no longer updating. Everything was safe and backed up, so I thought, just blow it away and start over.</p>
+
+<p>What I found during the set up is that the <code>_deploy</code> folder enjoys a special status within the source branch of being pointed at master. This makes sense, given its role, but I didn’t know you could do this with git. Ah, the process of discovery. I’ll have to tuck that little characteristic away for future reference.</p>
+
+<p>At any rate, I seem to be back on track, although one upshot is that I lost my commit history by deleting the old GH repo. I still have the old repo local, at least until I decide to get rid of it.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -423,6 +459,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/22/octopress-and-the-deploy-folder/">Octopress and the _deploy Folder</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/20/octopress-and-ssh/">Octopress &amp; SSH?</a>
       </li>
     
@@ -436,10 +476,6 @@
     
       <li class="post">
         <a href="/blog/2014/10/15/the-current-state-of-things/">The Current State of Things</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/11/running-docker-with-antergos/">Running Docker With Antergos</a>
       </li>
     
   </ul>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Habits - Working Blog</title>
+  <title>Octopress and the _deploy Folder - Working Blog</title>
   <meta name="author" content="Bob Campbell">
 
   
-  <meta name="description" content="Category: habits">
+  <meta name="description" content="Another short one. In the process of chasing around the issue with getting the SSH to work with Octopress, I inadvertantly deleted the _deploy folder &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mostlybob.github.io/blog/categories/habits">
+  <link rel="canonical" href="http://mostlybob.github.io/blog/2014/10/22/octopress-and-the-deploy-folder">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Working Blog" type="application/atom+xml">
@@ -76,35 +76,77 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Habits</h1>
+    
+      <h1 class="entry-title">Octopress and the _deploy Folder</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-22T05:51:59-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>5:51 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://mostlybob.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Another short one. In the process of chasing around the issue with getting the SSH to work with Octopress, I inadvertantly deleted the <code>_deploy</code> folder. When I saw the rake task complaining about the folder being missing, I recreated it and (thought) things were well. Then I noticed that my blog was no longer updating. Everything was safe and backed up, so I thought, just blow it away and start over.</p>
 
-  
-  <h2>2014</h2>
+<p>What I found during the set up is that the <code>_deploy</code> folder enjoys a special status within the source branch of being pointed at master. This makes sense, given its role, but I didn’t know you could do this with git. Ah, the process of discovery. I’ll have to tuck that little characteristic away for future reference.</p>
 
-<article>
-  
-<h1><a href="/blog/2014/10/15/the-current-state-of-things/">The Current State of Things</a></h1>
-<time datetime="2014-10-15T11:58:02-05:00" pubdate><span class='month'>Oct</span> <span class='day'>15</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/habits/'>habits</a>, <a class='category' href='/blog/categories/writing/'>writing</a></span>
-</footer>
-
-
-</article>
-
+<p>At any rate, I seem to be back on track, although one upshot is that I lost my commit history by deleting the old GH repo. I still have the old repo local, at least until I decide to get rid of it.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Bob Campbell</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-22T05:51:59-05:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>5:51 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/ssh/'>ssh</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://mostlybob.github.io/blog/2014/10/22/octopress-and-the-deploy-folder/" data-via="mostlybob" data-counturl="http://mostlybob.github.io/blog/2014/10/22/octopress-and-the-deploy-folder/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/20/octopress-and-ssh/" title="Previous Post: Octopress &amp; SSH?">&laquo; Octopress &amp; SSH?</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
